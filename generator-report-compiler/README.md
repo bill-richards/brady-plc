@@ -24,3 +24,4 @@ dotnet new nunit -n generator-report-compiler-tests -f netcoreapp3.1 -lang C#
 - Add projects to solution and set `RootNamespace` in both
 - Create objects to model expected input ([01-Basic.xml](../xml-docs/01-Basic.xml))
 - Create tests to ensure that deserialization of the object model works
+- Create directory watcher and tests
