@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace Brady
+namespace Brady.Serialization
 {
     public class ReportCollection<TCollectionType> : ICollection
     {

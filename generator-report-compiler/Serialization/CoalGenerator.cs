@@ -1,4 +1,4 @@
-﻿namespace Brady
+﻿namespace Brady.Serialization
 {
     public class CoalGenerator : Generator
     {

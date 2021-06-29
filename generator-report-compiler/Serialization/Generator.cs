@@ -1,7 +1,6 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
-namespace Brady
+namespace Brady.Serialization
 {
     public abstract class Generator
     {

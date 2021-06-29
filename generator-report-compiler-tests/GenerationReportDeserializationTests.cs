@@ -1,3 +1,4 @@
+using Brady.Serialization;
 using NUnit.Framework;
 
 namespace Brady
