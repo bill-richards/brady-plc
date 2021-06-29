@@ -3,13 +3,13 @@ using NUnit.Framework;
 
 namespace Brady
 {
-    public class GenerationReportDeserializationTests
+    public class DeserializationTests
     {
-        private GenerationReport Report;
+        private GenerationReport _report;
 
         [OneTimeSetUp]
         public void Setup() 
-            => Report = GenerationReport.Deserialize("./xml-docs/01-Basic.xml");
+            => _report = GenerationReport.Deserialize("./xml-docs/01-Basic.xml");
 
         [Test]
         public void WhenTheObjectModelIsDeserialized_ThereShouldBe_2_WindGenerators()
@@ -18,7 +18,7 @@ namespace Brady
             var expectedNumberOfGenerators = 2;
             
             // Assert
-            Assert.That(Report.Wind.Count, Is.EqualTo(expectedNumberOfGenerators));
+            Assert.That(_report.Wind.Count, Is.EqualTo(expectedNumberOfGenerators));
         }
 
         [Test]
@@ -28,7 +28,7 @@ namespace Brady
             var expectedNumberOfDaysData = 3;
 
             // Assert
-            Assert.That(Report.Wind[0].Days.Count, Is.EqualTo(expectedNumberOfDaysData));
+            Assert.That(_report.Wind[0].Days.Count, Is.EqualTo(expectedNumberOfDaysData));
         }
 
         [Test]
@@ -38,7 +38,7 @@ namespace Brady
             var expectedNumberOfDaysData = 3;
 
             // Assert
-            Assert.That(Report.Wind[1].Days.Count, Is.EqualTo(expectedNumberOfDaysData));
+            Assert.That(_report.Wind[1].Days.Count, Is.EqualTo(expectedNumberOfDaysData));
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace Brady
             var expectedNumberOfGenerators = 1;
 
             // Assert
-            Assert.That(Report.Gas.Count, Is.EqualTo(expectedNumberOfGenerators));
+            Assert.That(_report.Gas.Count, Is.EqualTo(expectedNumberOfGenerators));
         }
         
         [Test]
@@ -58,7 +58,7 @@ namespace Brady
             var expectedName = "Gas[1]";
 
             // Assert
-            Assert.That(Report.Gas[0].Name, Is.EqualTo(expectedName));
+            Assert.That(_report.Gas[0].Name, Is.EqualTo(expectedName));
         }
         
         [Test]
@@ -68,7 +68,7 @@ namespace Brady
             var expectedEmissionsRating = 0.038D;
 
             // Assert
-            Assert.That(Report.Gas[0].EmissionsRating, Is.EqualTo(expectedEmissionsRating));
+            Assert.That(_report.Gas[0].EmissionsRating, Is.EqualTo(expectedEmissionsRating));
         }
 
         [Test]
@@ -77,7 +77,7 @@ namespace Brady
             // Arrange
             var expectedNumberOfGenerators = 1;
             // Assert
-            Assert.That(Report.Coal.Count, Is.EqualTo(expectedNumberOfGenerators));
+            Assert.That(_report.Coal.Count, Is.EqualTo(expectedNumberOfGenerators));
         }
 
         [TestCase(1,10.146)]
@@ -86,7 +86,7 @@ namespace Brady
         public void WhenTheObjectModelIsDeserialized_ThenTheCoalGenerator_ShouldHaveTheExpectedPriceForEachDay(int dayNumber, double expectedPrice)
         {
             // Assert
-            Assert.That(Report.Coal[0].Days[dayNumber-1].Price, Is.EqualTo(expectedPrice));
+            Assert.That(_report.Coal[0].Days[dayNumber-1].Price, Is.EqualTo(expectedPrice));
         }
     }
 }
