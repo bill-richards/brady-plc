@@ -59,7 +59,11 @@ namespace Brady
             TheWatcher.FileAddedToDirectory += async sourceFile =>
             {
                 var report = await DataProcessor.Process(sourceFile, config.ReferenceDataFilePath);
-                var fileName = Path.Combine(config.OutputDirectory, Path.GetFileName(sourceFile));
+                var filename = Path.GetFileNameWithoutExtension(sourceFile);
+                
+
+
+                var fileName = Path.Combine(config.OutputDirectory, $"{Path.GetFileNameWithoutExtension(sourceFile)}-Result.xml");
                 report.SerializeToFile(fileName);
                 File.Delete(sourceFile);
             };
