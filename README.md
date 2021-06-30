@@ -2,7 +2,9 @@
 
 ## The Solution
 
-The steps taken to create the solution are documented [here](./generation-report-compiler/README.md)
+The steps taken to create the solution are documented [here](./generator-report-compiler/README.md)
+
+Things not included are documented [here](./NotIncluded.md)
 
 ## The Task
 
