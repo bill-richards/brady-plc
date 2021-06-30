@@ -32,7 +32,9 @@ dotnet new nunit -n generator-report-compiler-tests -f netcoreapp3.1 -lang C#
   - create a `GenerationOutput` object with the calculated values
 - Create `DirectoryWatcher` and `DataProcessor` integration tests
 - Create `ReferenceData` model [ReferenceData.xml](../xml-docs/ReferenceData.xml) with supporting tests
-- Create configuration object to load config from appsetting.json
+- Create configuration object to load config from `appsetting.json`
   - InputDirectory: the full path to the directory to be watched
   - OutputDirectory: the full path to the directory where data will be output
   - ReferenceDataFilePath:: the full path to the `ReferenceData.xml` file
+- Create program runner
+  - checks for the existence of files and paths specified in 'appsettings.json'

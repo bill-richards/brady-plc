@@ -13,11 +13,18 @@ namespace Brady
 
             if (config.InputDirectory.IsNullOrWhitespace())
                 message += "InputDirectory is not specified in appsettings.json\n";
+            if (!config.InputDirectory.IsNullOrWhitespace() && !Directory.Exists(config.InputDirectory))
+                message += $"InputDirectory [{config.InputDirectory}] specified in appsettings.json does not exist\n";
+
+
             if (config.OutputDirectory.IsNullOrWhitespace())
                 message += "OutputDirectory is not specified in appsettings.json\n";
+            if (!config.OutputDirectory.IsNullOrWhitespace() && !Directory.Exists(config.OutputDirectory))
+                message += $"OutputDirectory [{config.OutputDirectory}] specified in appsettings.json does not exist\n";
+
+
             if (config.ReferenceDataFilePath.IsNullOrWhitespace())
                 message += "ReferenceDataFilePath is not specified in appsettings.json\n";
-
             if (!config.ReferenceDataFilePath.IsNullOrWhitespace() && !File.Exists(config.ReferenceDataFilePath) )
                 message += $"Using ReferenceDataFilePath [{config.ReferenceDataFilePath}] the file does not exist\n";
 
