@@ -1,5 +1,9 @@
 # brady-plc
 
+## The Solution
+
+The steps taken to create the solution are documented [here](./generation-report-compiler/README.md)
+
 ## The Task
 
 You are required to provide a production ready solution (Console Application) written in C#.
