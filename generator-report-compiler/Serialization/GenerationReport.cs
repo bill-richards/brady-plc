@@ -18,7 +18,6 @@ namespace Brady.Serialization
             return generator;
         }
 
-
         public static GenerationReport Deserialize(string filename)
         {
             var serializer = new XmlSerializer(typeof(GenerationReport));

@@ -13,12 +13,6 @@ namespace Brady
         private IDirectoryWatcherFactory WatcherFactory => _watcherFactory ??= new DirectoryWatcher();
         private IDirectoryWatcher TheWatcher { get; set; }
 
-        private string GetCurrentDirectory()
-        {
-            var location = Assembly.GetExecutingAssembly().Location;
-            return Path.GetDirectoryName(location);
-        }
-
         [TearDown]
         public void TestTearDown()
         {
@@ -34,7 +28,7 @@ namespace Brady
         public void WhenTheWatcherIsCreated_TheProperty_IsWatching_ShouldReturnFalse()
         {
             // Arrange
-            var workingDirectory = GetCurrentDirectory();
+            var workingDirectory = TestHelper.GetCurrentDirectory();
 
             // Act
             TheWatcher = WatcherFactory.CreateDirectoryWatcher(workingDirectory);
@@ -47,7 +41,7 @@ namespace Brady
         public void WhenTheWatcherHasStarted_TheProperty_IsWatching_ShouldReturnTrue()
         {
             // Arrange
-            var workingDirectory = GetCurrentDirectory();
+            var workingDirectory = TestHelper.GetCurrentDirectory();
             TheWatcher = WatcherFactory.CreateDirectoryWatcher(workingDirectory);
 
             // Act
@@ -62,7 +56,7 @@ namespace Brady
         {
             // Arrange
             var eventRaised = false;
-            var workingDirectory = GetCurrentDirectory();
+            var workingDirectory = TestHelper.GetCurrentDirectory();
             TheWatcher = WatcherFactory.CreateDirectoryWatcher(workingDirectory);
             TheWatcher.FileAddedToDirectory += path => eventRaised = true;
 
@@ -77,10 +71,10 @@ namespace Brady
         public void WhenTheWatcherHasStarted_AndAFileIsAdded_TheEvent_FileAddedToDirectory_ShouldBeRaised()
         {
             var eventRaised = false;
-            var root = GetCurrentDirectory();
+            var root = TestHelper.GetCurrentDirectory();
 
             var fileName = "01-Basic.xml";
-            var destination = Path.Combine(root, "FileAddedToDirectory");
+            var destination = Path.Combine(root, "EventRaised");
             var sourcePath = Path.Combine(root, @"xml-docs");
             var sourceFile = Path.Combine(sourcePath, fileName);
             var destinationFile = Path.Combine(destination, fileName);
@@ -110,10 +104,10 @@ namespace Brady
         public void WhenTheWatcherHasStarted_AndAFileIsAdded_TheEvent_FileAddedToDirectory_ShouldIndicateTheNewlyAddedFile()
         {
             var addedFileName = string.Empty;
-            var root = GetCurrentDirectory();
+            var root = TestHelper.GetCurrentDirectory();
 
             var fileName = "01-Basic.xml";
-            var destination = Path.Combine(root, "FileAddedToDirectory");
+            var destination = Path.Combine(root, "IndicateFileName");
             var sourcePath = Path.Combine(root, @"xml-docs");
             var sourceFile = Path.Combine(sourcePath, fileName);
             var destinationFile = Path.Combine(destination, fileName);

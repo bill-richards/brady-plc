@@ -25,3 +25,8 @@ dotnet new nunit -n generator-report-compiler-tests -f netcoreapp3.1 -lang C#
 - Create objects to model expected input ([01-Basic.xml](../xml-docs/01-Basic.xml))
 - Create tests to ensure that deserialization of the object model works
 - Create directory watcher and tests
+- Create objects needed to model the expected output ([01-Basic-Result.xml](../xml-docs/01-Basic-Result.xml))
+- Create `DataProcessor` whose responsibilities are
+  - create a `GenerationReport` from the new file
+  - perform data manipulation to create a `GenerationOutput` object
+- Create `DirectoryWatcher` and `DataProcessor` integration tests

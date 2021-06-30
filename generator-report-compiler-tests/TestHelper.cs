@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Reflection;
 
 namespace Brady
 {
@@ -11,5 +12,18 @@ namespace Brady
             try { Directory.Delete(directory); }
             catch { /* ignored */ }
         }
+
+        private static string _location;
+
+        public static string GetCurrentDirectory()
+        {
+            if (_location != null) return _location;
+
+            var path = Assembly.GetExecutingAssembly().Location;
+            _location = Path.GetDirectoryName(path);
+
+            return GetCurrentDirectory();
+        }
+
     }
 }
