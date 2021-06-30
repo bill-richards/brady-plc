@@ -1,7 +1,6 @@
 ﻿namespace Brady.Serialization
 {
-    public class GasGenerator : Generator
+    public class GasGenerator : EmissionsRatedGenerator
     {
-        public double EmissionsRating { get; set; }
     }
 }

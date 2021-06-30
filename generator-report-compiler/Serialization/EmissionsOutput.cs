@@ -2,7 +2,7 @@
 
 namespace Brady.Serialization
 {
-    public class DayOutput
+    public class EmissionsOutput
     {
         public string Name { get; set; }
         public DateTime Date { get; set; }

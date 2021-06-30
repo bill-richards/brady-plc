@@ -35,9 +35,9 @@ namespace Brady
             var deserialized = DeserializeFromFile(outputFile);
 
             // Assert
-            Assert.That(deserialized.DayOutputs.Count, Is.EqualTo(testData.DayOutputs.Count));
-            Assert.That(deserialized.DayOutputs.Count, Is.EqualTo(3));
-            Assert.That(deserialized.DayOutputs[1].Emission, Is.EqualTo(136.440767624));
+            Assert.That(deserialized.EmissionsOutputs.Count, Is.EqualTo(testData.EmissionsOutputs.Count));
+            Assert.That(deserialized.EmissionsOutputs.Count, Is.EqualTo(3));
+            Assert.That(deserialized.EmissionsOutputs[1].Emission, Is.EqualTo(136.440767624));
             Assert.That(deserialized.GeneratorOutputs.Count, Is.EqualTo(testData.GeneratorOutputs.Count));
             Assert.That(deserialized.GeneratorOutputs.Count, Is.EqualTo(4));
             Assert.That(deserialized.GeneratorOutputs[3].Total, Is.EqualTo(5341.716526632));

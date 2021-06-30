@@ -29,10 +29,11 @@ namespace Brady
         }
 
         [Test]
-        public void WhenAFile_IsAddedToTheWatchedDirectory_TheDataProcessorCreatesTheExpected_GenerationReport()
+        public void WhenAFile_IsAddedToTheWatchedDirectory_TheDataProcessorCreatesTheExpected_GenerationOutput()
         {
             // Arrange
             var watchDirectory = Path.Combine(TestHelper.GetCurrentDirectory(), "watch-directory");
+            var referenceDataFile = Path.Combine(TestHelper.GetCurrentDirectory(), "xml-docs", "ReferenceData.xml");
             var destinationFile = Path.Combine(watchDirectory, ReportFileName);
             Directory.CreateDirectory(watchDirectory);
             TheWatcher = WatcherFactory.CreateDirectoryWatcher(watchDirectory);
@@ -41,9 +42,9 @@ namespace Brady
                 // Assert
                 try
                 {
-                    var report = await DataProcessor.Process(sourceFile);
+                    var report = await DataProcessor.Process(sourceFile, referenceDataFile);
                     Assert.That(report, Is.Not.Null);
-                    Assert.That(report, Is.InstanceOf<GenerationReport>());
+                    Assert.That(report, Is.InstanceOf<GenerationOutput>());
                 }
                 finally
                 {

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Brady.Serialization
 {
@@ -19,5 +21,8 @@ namespace Brady.Serialization
 
         public void Add(TCollectionType item) 
             => _theCollection.Add(item);
+
+        public IEnumerable<TCollectionType> AsEnumerable() 
+            => _theCollection.ToArray().Select(t => (TCollectionType)t);
     }
 }

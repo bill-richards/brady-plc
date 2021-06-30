@@ -5,8 +5,6 @@ namespace Brady
 {
     public static class TestHelper
     {
-        private static bool IsNullOrWhitespace(this string value) => string.IsNullOrWhiteSpace(value);
-
         public static void RemoveTestOutputFileAndDirectory(string file, string directory = "")
         {
             if (!file.IsNullOrWhitespace())

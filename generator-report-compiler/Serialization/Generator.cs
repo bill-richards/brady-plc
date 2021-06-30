@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.Linq;
+using System.Xml.Serialization;
 
 namespace Brady.Serialization
 {
@@ -10,7 +11,8 @@ namespace Brady.Serialization
         [XmlArrayItem("Day")]
         public ReportCollection<Day> Days { get; } = new ReportCollection<Day>();
 
-        //public void AddGenerationData(DateTime date, double energy, double price) 
-        //    => Days.Add(new Day { Date = date, Energy = energy, Price = price });
+        [XmlIgnore]
+        public double TotalGenerationValue
+            => double.Parse(Days.AsEnumerable().Sum(day => day.GenerationValue).ToString("0.#########"));
     }
 }

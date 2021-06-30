@@ -1,9 +1,8 @@
 ﻿namespace Brady.Serialization
 {
-    public class CoalGenerator : Generator
+    public class CoalGenerator : EmissionsRatedGenerator
     {
         public double TotalHeatInput { get; set; }
         public double ActualNetGeneration { get; set; }
-        public double EmissionsRating { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace Brady.Serialization
 
         [XmlArray("MaxEmissionGenerators")]
         [XmlArrayItem("Day")]
-        public ReportCollection<DayOutput> DayOutputs { get; } = new ReportCollection<DayOutput>();
+        public ReportCollection<EmissionsOutput> EmissionsOutputs { get; } = new ReportCollection<EmissionsOutput>();
 
         [XmlArray("ActualHeatRates")]
         [XmlArrayItem("ActualHeatRate")]
@@ -19,7 +19,7 @@ namespace Brady.Serialization
 
         public TCollectionType AddOutput<TCollectionType>(TCollectionType item) 
         {
-            if (item.GetType() == typeof(DayOutput)) { DayOutputs.Add(item as DayOutput); }
+            if (item.GetType() == typeof(EmissionsOutput)) { EmissionsOutputs.Add(item as EmissionsOutput); }
             else if (item.GetType() == typeof(GeneratorOutput)) { GeneratorOutputs.Add(item as GeneratorOutput); }
             else if (item.GetType() == typeof(ActualHeatRate)) { HeatRates.Add(item as ActualHeatRate); }
             return item;

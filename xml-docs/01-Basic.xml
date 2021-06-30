@@ -74,8 +74,8 @@
         <Day>
           <Date>2017-01-01T00:00:00+00:00</Date>
           <Energy>350.487</Energy>
-          <Price>10.146</Price>
-        </Day>
+          <Price>10.146</Price> 
+        </Day> 
         <Day>
           <Date>2017-01-02T00:00:00+00:00</Date>
           <Energy>348.611</Energy>
