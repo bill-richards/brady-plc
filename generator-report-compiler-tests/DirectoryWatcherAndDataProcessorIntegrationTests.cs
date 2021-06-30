@@ -38,12 +38,17 @@ namespace Brady
             TheWatcher = WatcherFactory.CreateDirectoryWatcher(watchDirectory);
             TheWatcher.FileAddedToDirectory += async sourceFile =>
             {
-                var report = await DataProcessor.Process(sourceFile);
-                TestHelper.RemoveTestOutputFileAndDirectory(destinationFile, watchDirectory);
-
                 // Assert
-                Assert.That(report, Is.Not.Null);
-                Assert.That(report, Is.InstanceOf<GenerationReport>());
+                try
+                {
+                    var report = await DataProcessor.Process(sourceFile);
+                    Assert.That(report, Is.Not.Null);
+                    Assert.That(report, Is.InstanceOf<GenerationReport>());
+                }
+                finally
+                {
+                    TestHelper.RemoveTestOutputFileAndDirectory(destinationFile, watchDirectory);
+                }
             };
             TheWatcher.StartWatching();
 

@@ -5,10 +5,17 @@ namespace Brady
 {
     public static class TestHelper
     {
-        public static void RemoveTestOutputFileAndDirectory(string file, string directory)
+        private static bool IsNullOrWhitespace(this string value) => string.IsNullOrWhiteSpace(value);
+
+        public static void RemoveTestOutputFileAndDirectory(string file, string directory = "")
         {
-            try { File.Delete(file); }
-            catch { /* ignored */ }
+            if (!file.IsNullOrWhitespace())
+            {
+                try { File.Delete(file); }
+                catch { /* ignored */ }
+            }
+
+            if (directory.IsNullOrWhitespace()) return;
             try { Directory.Delete(directory); }
             catch { /* ignored */ }
         }

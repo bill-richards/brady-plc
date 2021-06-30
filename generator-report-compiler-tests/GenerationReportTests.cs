@@ -3,13 +3,13 @@ using NUnit.Framework;
 
 namespace Brady
 {
-    public class DeserializationTests
+    public class GenerationReportTests
     {
         private GenerationReport _report;
 
         [OneTimeSetUp]
         public void Setup() 
-            => _report = GenerationReport.Deserialize("./xml-docs/01-Basic.xml");
+            => _report = GenerationReport.DeserializeFromFile("./xml-docs/01-Basic.xml");
 
         [Test]
         public void WhenTheObjectModelIsDeserialized_ThereShouldBe_2_WindGenerators()

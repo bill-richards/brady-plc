@@ -21,7 +21,7 @@ namespace Brady
 
         private DataProcessor(string sourceFile)
         {
-            var report = GenerationReport.Deserialize(sourceFile);
+            var report = GenerationReport.DeserializeFromFile(sourceFile);
             _theReport = report;
         }
 

@@ -30,3 +30,4 @@ dotnet new nunit -n generator-report-compiler-tests -f netcoreapp3.1 -lang C#
   - create a `GenerationReport` from the new file
   - perform data manipulation to create a `GenerationOutput` object
 - Create `DirectoryWatcher` and `DataProcessor` integration tests
+- Create model for [ReferenceData.xml](../xml-docs/ReferenceData.xml)

@@ -39,6 +39,6 @@
     <ActualHeatRate>
      <Name>Coal[1]</Name>
      <HeatRate>1</HeatRate>
-	</ActualHeatRate>
+	  </ActualHeatRate>
   </ActualHeatRates>
 </GenerationOutput>

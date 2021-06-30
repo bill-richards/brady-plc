@@ -18,18 +18,11 @@ namespace Brady.Serialization
             return generator;
         }
 
-        public static GenerationReport Deserialize(string filename)
+        public static GenerationReport DeserializeFromFile(string fullPath)
         {
             var serializer = new XmlSerializer(typeof(GenerationReport));
-            using Stream reader = new FileStream(filename, FileMode.Open);
+            using Stream reader = new FileStream(fullPath, FileMode.Open);
             return (GenerationReport)serializer.Deserialize(reader);
-        }
-
-        public void Serialize(string filename)
-        {
-            var x = new XmlSerializer(typeof(GenerationReport));
-            TextWriter writer = new StreamWriter(filename);
-            x.Serialize(writer, this);
         }
     }
 }
